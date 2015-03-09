@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{page_title}}</title>
+<link type="text/css" rel="stylesheet" href="/stylesheets/admin.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/scripts/lightbox.js"></script>
+</head>
+
+<body>
+	
+	<div id="lightbox-product"> </div><!-- /lightbox-feedback -->
+	<div id="lightbox-productform">
+		<div id="close-product"></div>
+		<h1>Product Registration</h1>
+		<hr>
+		<hr>
+		<form enctype="multipart/form-data" method ="post">
+			<label>
+				<P>Product Title</p>
+			</label>
+			<input type = "text" name ="prod_title" required ="True">
+			<label>
+				<p>Manufacturer</p>
+			</label>
+			<input type ="text" name ="prod_manufacturer" required ="True">
+			<label>
+				<p>Weekly Rental Price (in 00.00 format)</p>
+			</label>
+			<input type ="text" name ="price" required ="True" class = "number">
+			<label>
+				<p>Amount in Inventory</p>
+			</label>
+			<input type = "text" name = "starting_inventory" required ="True" class ="number">	
+			<label>
+				<p>Youtube Link</p>
+			</label>
+			<input type ="url" name = "youtube" required ="True">
+			<label>
+				<p>Product Image - Must be at least 600px x 400px</p>
+			</label>
+			<input type="file" name ="prod_image" required ="True">
+			<label>
+				<p>Zoink Perspective</p>
+			</label>
+			<textarea name ="zoink_perspective" required ="True"></textarea>
+			<label>
+				<p>Product Overview</p>
+			</label>
+			<textarea name ="overview" required ="True"></textarea>
+			<label>
+				<p>What you need to know</p>
+			</label>
+			<textarea name="need_to_know" required ="True"></textarea>
+			<br>
+			<input type = "submit" name = "product_registration" value="Create Product">
+		
+		</form>
+	</div>	
+
+	
+	
+<dashboard>
+	<div id="products">
+		<div id="prod-header"><button type="button" class= "show-product">Add New Product</button></div>
+		<div id="prod-listing">
+		</div>	
+	</div>
+	<div id ="registrations">
+		<table border="1">
+		{% for reg in registrations %}
+		      
+			<tr>
+			<td>{{reg.first_name}}</td>
+			<td>{{reg.last_name}}</td>
+			<td>{{reg.email_address}}</td>
+			<td><form method="post">
+				<input type = "hidden" name ="date" value ="{{reg.sign_date}}">
+				<input type ="hidden" name ="email" value = "{{reg.email_address}}">
+				<input type ="hidden" name ="first_name" value ="{{reg.first_name}}">
+				<input type ="hidden" name ="last_name" value ="{{reg.last_name}}">
+				<input type="submit" name ="approve"  value ="Approve"></form></td>
+			</tr>
+			
+		    {% endfor %}
+		</table>
+	</div>
+	
+</dashboard>

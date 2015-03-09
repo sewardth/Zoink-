@@ -1,0 +1,56 @@
+application: zoinkpage
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+  
+- url: /stylesheets
+  static_dir: stylesheets
+  
+- url: /images
+  static_dir: images  
+  
+- url: /scripts
+  static_dir: scripts
+ 
+- url: /pages/.* 
+  script: pages.app
+
+- url: /products/.*
+  script: products.app
+  
+- url: /FAQs.*
+  script: faqs.app  
+  
+- url: /sign-in.*
+  script: sign.app
+
+- url: /admin.*
+  script: admin.app
+  
+- url: /accounts.*
+  script: accounts.app
+  
+- url: /cart.*
+  script: cart.app
+  
+- url: /logout.*
+  script: logout.app
+  
+- url: /checkout.*
+  script: checkout.app
+ 
+- url: .*
+  script: main.app
+
+libraries:
+- name: webapp2
+  version: "2.5.1"
+
+- name: jinja2
+  version: latest

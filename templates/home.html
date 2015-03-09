@@ -1,0 +1,60 @@
+<div id= "timeline">
+	<img src="images/timeline.jpg" alt="Timeline">
+</div>
+
+<div id = "media">
+	<div id = "video">
+		<iframe src="http://player.vimeo.com/video/31355296?title=1&amp;byline=1&amp;portrait=1" width="420" height="230" 
+		frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> 
+	</div>
+	<div id ="form">
+		<p>Request an Invite!</p>
+		<form name="Sign Up" method="post">
+		<input type="text" name="first_name"  value ="{{first_name}}" placeholder = "First Name">
+		<input type="text" name="last_name"  value = "{{last_name}}" placeholder = "Last Name">
+		<input type="text" name="email_address"  value = "{{email_address}}" placeholder ="Email Address">
+		<input type="submit" value="Sign Up"> 
+		<nobr>Already have an account? <a href="/sign-in" class ="">Sign in</a></nobr>
+		</form>
+		<div class = "form_error"><pre>{{error}}</pre></div>
+	</div>	
+</div>	
+
+
+<div id="product_container">
+	<h1>Featured Gadgets</h1>	
+	<div onclick="location.href='/products/iPad-Mini';" class="product">
+		<div class="prod_title">
+			<nobr>iPad Mini</nobr>
+		</div>
+		<div class="prod_img">
+			<img src="images/ipad-mini.png" alt="Ipad Mini"/>
+		</div>
+		<div class = "prod_price">
+			<nobr>Rent for $35.00</nobr>
+		</div>
+	</div>
+	<div onclick="location.href='/products/Sphero';" class="product">
+		<div class="prod_title">
+			<nobr>Sphero</nobr>
+		</div>
+		<div class="prod_img">
+			<img src="images/sphero.png" alt="Sphero"/>
+		</div>
+		<div class = "prod_price">
+			<nobr>Rent for $15.00</nobr>
+		</div>			
+	</div>
+	<div onclick="location.href='/products/Lytro-8GB-Camera';" class="product">
+		<div class="prod_title">
+			<nobr>Lytro</nobr>
+		</div>
+		<div class="prod_img">
+			<img src="images/Lytro-Red.png"  alt="Lytro Red"/>
+		</div>
+		<div class = "prod_price">
+			<nobr>Rent for $42.00</nobr>
+		</div>
+	</div>	
+</div>	
+

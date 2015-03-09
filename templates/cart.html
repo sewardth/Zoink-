@@ -1,0 +1,28 @@
+<div id="cart">
+{% if products %}
+	
+	{% for p in products %}
+		<div class="prod_listing">
+			<div class="image_class"></div>
+			<div class ="content_class">
+				<h1>{{p.product}} from {{p.prod_manu}}</h1>
+				<p>${{p.price}}0</p>
+				<p>{{p.description}}</p>
+				<p>Added on {{p.add_time}}  <nobr><form method="post"><input type ="submit" name="delete" value ="Remove from cart"><input type="hidden" name="row" value="{{p.key().id()}}"></form></nobr>
+			</div>
+		</div>
+	{% endfor %}
+	
+	<div id="cart_checkout">
+		<form method="get" action="/checkout">
+			<input type ="hidden" name ="product" value ="{{check_total}}">
+			<input type ="submit" value ="  Checkout         ${{check_total}}">
+		</form>
+	</div>
+	
+{% else %}
+	<div class ="no_items">
+	<p>No products are currently in the cart.  If you added items before, try signing in to view your items</p>
+	</div>
+{% endif %}
+</div>

@@ -1,0 +1,135 @@
+<div id="lightbox-feedback"> </div><!-- /lightbox-feedback -->
+<div id="lightbox-feedbackform">
+	<div id="close-feedback"></div>
+	<h1>Product Feedback: {{prod_title}}</h1>
+	<p class ="description">Providing feedback is so import to our customers that we award 10 <a href="/credits">Zoink! credits</a> for each complete survey submitted.  Please let us know how your product experience went!</p>
+	<hr>
+	<hr>
+	<form name = "feedback" action ="reviews" method ="post">
+		<input type = "hidden" name ="product" value ="{{prod_title}}">
+		<input type ="hidden" name ="url" value ="{{prod_path}}">
+		<label>
+			<p>Rate your familiarity with {{prod_comp}}</p>
+			<select name="familiarity">
+				<option value ="0">Select:</option>
+				<option value = "1">I own a product(s) from {{prod_comp}}</option>
+				<option value ="2">I've heard of the brand before</option>
+				<option value ="3">Totally new to me before Zoink!</option>
+			</select>
+		</label>
+		<label>
+			<p>When was the last time you purchased an item from {{prod_comp}}</p>
+			<select name ="purchase">
+				<option value ="0">Select:</option>
+				<option value ="1">Less than 1 year ago</option>
+				<option value ="2">Over 1 year ago</opiton>
+				<option value ="3">Over 2 years ago</option>
+				<option value ="4">Three or more years ago</option>
+				<option value ="5">Never</option>
+			</select>
+		</label>
+		<label>
+			<p>What did you think of {{prod_title}}?</p>
+			<select name = "prod_rating">
+				<option value ="0">Select:</option>
+				<option value "1">I loved it and am keeping it from Zoink!</option>
+				<option value ="2">I loved it and am buying elsewhere</option>
+				<option value ="3">I liked it but it's too expensive to buy</option>
+				<option value ="4">It was okay</option>
+				<option value ="5">If I had purchased it I would have returned it</option>
+			</select>
+		</label>
+		<label>
+			<p>How would you rate the overall product?</p>
+			<p class="subtitle">(Where 1 = Not at all satisfied, 5 = very satisfied)</p>
+			<input type = "radio" name = "overall_rating" value ="1"> 1
+			<input type = "radio" name = "overall_rating" value ="2"> 2
+			<input type = "radio" name = "overall_rating" value ="3"> 3
+			<input type = "radio" name = "overall_rating" value ="4"> 4
+			<input type = "radio" name = "overall_rating" value ="5"> 5
+		</label>
+		<hr>
+		<h1>Public Product Review</h1>
+		<p class ="description">Please share your experience with other Zoink! customers.  Try to focus on product aspects and your overall experience with the gadget.</p>
+		<label>
+			<p>Please enter a title for your review</p>
+			<input type ="text" name ="title">
+		</label>
+		<label>
+			<p>Share your opinion on this product</p>
+			<textarea name ="opinion"></textarea>
+		</label>
+		<br>
+		<label>
+			<input type ="submit" value ="submit">
+		</label>			
+     </form>
+</div>
+
+
+
+
+
+
+<div id = "product_outline">
+	<div id = "prodpage_media">
+		<div id ="prodpage_image">
+			<img src="{{prod_image}}" alt="{{prod_title}}">
+		</div>
+		<div id ="prodpage_tips">
+			<h1>Zoink Perspective:</h1>
+			<p>{{zoink_perspective}}</p>
+		</div>
+		<div id = "prodpage_video">
+			<iframe width="390" height="219" src="{{prod_video}}" frameborder="0" allowfullscreen></iframe>
+		</div>	
+	</div>
+	<div id ="prodpage_info">
+		<div id = "prodpage_title">
+			<h1>{{prod_title}}</h1>
+		</div>
+		<div id = "prodpage_reviews">
+			<a class ="show-feedback">write a review</a>
+		</div>
+		<div id = "prodpage_form">
+			<form method = "post">
+				<input type ="hidden" name="user" value ="{{userid}}">
+				<input type="hidden" name ="product" value ="{{prod_title}}">
+				<input type = "hidden" name ="price" value ="{{prod_price}}">
+				<input type ="hidden" name ="path" value ="{{prod_path}}">
+				<p><input type="submit" value="ADD TO CART  ${{prod_price}}"></p>
+				{% if userid %}
+					<nobr></nobr>
+				{% else %}
+					<p id="warning">You must be signed in to add items to the cart.  Either <a href="/sign-in">Sign in</a> or <a href="/">Register</a></p>
+				{% endif %}
+			</form>
+		</div>
+		<div id = "prodpage_social">
+			<div class="fb-like" data-href="{{prod_url}}" data-send="false" data-layout="button_count" data-width="50" data-show-faces="true"></div>
+			<div class = "tweet"> <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a></div>
+			<div class = "pin_it"><a data-pin-config="beside" data-pin-do="buttonPin" href="//pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F&media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg&description=Next%20stop%3A%20Pinterest!"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a></div>
+				
+		</div>
+		<div id ="prodpage_desc">
+			<h1>Overview:</h1>
+			<p>{{prod_overview}}</p>
+			<h1>What you need to know:</h1>
+			<p>{{need_to_know}}</p>
+		</div>
+	</div>
+</div>	
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<script src="//assets.pinterest.com/js/pinit.js"></script>

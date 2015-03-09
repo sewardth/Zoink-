@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{page_title}}</title>
+<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/scripts/lightbox.js"></script>
+</head>
+
+<body>
+		
+<header>
+	<div id ="Highlight"></div>
+		<div id="header_content">
+			<div id="left_head">
+			<div id = "logo">
+				<a href = "/"><img src="/images/Logo.png" alt="Zoink!"></a>
+			</div>
+			</div>
+			<div id ="right_head">
+			
+			<div id = "checkout_button">
+				<a href = "/cart"><img src="/images/cart.png" alt="Cart"></a>
+				{% if cart_count > 0 %}
+					<div id="cart_count">{{cart_count}}</div>
+				{% endif %}
+			</div>
+			<div id = "user">
+				{% if user %}
+					<nobr>Welcome, {{user}}!  </nobr> <nobr><form method ="post" action="/logout"></nobr><nobr><input type="hidden" name="path" value ={{direct}}></nobr><nobr><input type="submit" value="Sign out"></nobr></form></nobr>
+				{% else %}
+					<nobr>Already have an account? </nobr><a href = "/sign-in" class ="">Sign in</a>
+				{% endif %}
+			</div>
+			</div>
+		</div>	
+	
+</header>
+

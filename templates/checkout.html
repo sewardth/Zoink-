@@ -1,0 +1,94 @@
+
+<div id="checkout">
+    <h1>Payment Transaction Form</h1>
+      <form method="POST" id="braintree-payment-form">
+		<div id="billing_address">
+		<h2>Billing Address</h2>
+		<hr>
+		  <p>
+	        <label>First Name</label>
+	        <br><input type="text" size="50" name="first_name" id="first_name"></input></br>
+	      </p>
+	      <p>
+	        <label for="last_name">Last Name</label>
+	        <br><input type="text" size="50" name="last_name" id="last_name"></input></br>
+	      </p>
+		  <p>
+	        <label for="street_address">Address</label>
+	        <br><input type="text" size="50" name="street_address" id="street_address"></input></br>
+	      </p>
+		  <p>
+	        <label for="extended_address">Address Line 2</label>
+	        <br><input type="text" size ="50" name="extended_address" id="extended_address"></input></br>
+	      </p>
+		  <p>
+	        <label for="locality">City</label>
+	        <br><input type="text" size="50" name="locality" id="locality"></input></br>
+	      </p>
+		  <p>
+	        <label for="region">State</label>
+	        <br><input type="text" size="2" name="region" id="region"></input></br>
+	      </p>
+	      <p>
+	        <label for="postal_code">Postal Code</label>
+	        <br><input type="text" size="5" name="postal_code" id="postal_code"></input></br>
+	      </p>
+		<p>
+			<input type ="button" value ="Add a different address for shipping" id="add_shipping"></input>
+		</div>
+		<div id="shipping_address">
+			<h2>Shipping Address</h2>
+			<hr>
+			  <p>
+		        <label>First Name</label>
+		        <br><input type="text" size="50" name="ship_first_name" id="ship_first_name"></input></br>
+		      </p>
+		      <p>
+		        <label for="last_name">Last Name</label>
+		        <br><input type="text" size="50" name="ship_last_name" id="ship_last_name"></input></br>
+		      </p>
+			  <p>
+		        <label for="street_address">Address</label>
+		        <br><input type="text" size="50" name="ship_street_address" id="ship_street_address"></input></br>
+		      </p>
+			  <p>
+		        <label for="extended_address">Address Line 2</label>
+		        <br><input type="text" size ="50" name="ship_extended_address" id="ship_extended_address"></input></br>
+		      </p>
+			  <p>
+		        <label for="locality">City</label>
+		        <br><input type="text" size="50" name="ship_locality" id="ship_locality"></input></br>
+		      </p>
+			  <p>
+		        <label for="region">State</label>
+		        <br><input type="text" size="2" maxlength="2" name="ship_region" id="region"></input></br>
+		      </p>
+		      <p>
+		        <label for="postal_code">Postal Code</label>
+		        <br><input type="text" size="5" maxlength="5" name="ship_postal_code" id="postal_code"></input></br>
+		      </p>
+		</div>
+		<div id="payment">	
+		<h2>Payment Info</h2>
+		<hr>
+        <p>
+          <label>Card Number</label>
+          <br><input type="text" size="20" autocomplete="off" data-encrypted-name="number" /></br>
+        </p>
+        <p>
+          <label>CVV</label>
+          <br><input type="text" size="4" autocomplete="off" data-encrypted-name="cvv" /></br>
+        </p>
+        <p>
+          <label>Expiration (MM/YYYY)</label>
+          <br><input type="text" size="2" data-encrypted-name="month" /> / <input type="text" size="4" data-encrypted-name="year" /></br>
+        </p>
+        <input type="submit" value="Process Payment    ${{check_total}}" id="submit" />
+      </form>
+    </div>
+    <script type="text/javascript" src="https://js.braintreegateway.com/v1/braintree.js"></script>
+    <script type="text/javascript">
+      var braintree = Braintree.create("MIIBCgKCAQEAva2HftOP7GQxEtkns0a5B7hYPdpExValK2Pch4c6bXyo/xqTpGfohGDPXuEot82vqUwrhdfFNLGfhO7v/GKfrwAJjUTeBR9faCl1tqgaxsbJ4SJgQGSTneG0R3mdlmJsYdnPQfhjY9OQG6xk+BQTrPjdoOUyF4hVaBHmSCYF5xKEaqlyZa0MqLN4Qf7paRx8SO7hTzz0qkJtVo3bukHjvI1k1jB++9H8c/LUMYUVEquf0t7ryO4ypUCcJx60PdzKz9lmLXowdS6VF39t8KJ9RiTdXP2Ads8HLDrro0jwjd6cj4GxYUdidKcgfgWXO+Dp9LppJxeB6pwdrtgb6sWs1QIDAQAB");
+      braintree.onSubmitEncryptForm('braintree-payment-form');
+    </script>
+ </div>
